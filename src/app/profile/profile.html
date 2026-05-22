@@ -1,0 +1,29 @@
+<div class="profile-page">
+  @if(profileObj){
+    <div class="profile-container">
+      <div class="profile-card">
+        <div class="profile-avatar-wrap">
+          <img [src]="profileObj.avatar || 'https://ui-avatars.com/api/?name=' + profileObj.firstName" class="profile-avatar" [alt]="profileObj.firstName" />
+        </div>
+        <h2 class="profile-name">{{profileObj.firstName}} {{profileObj.lastName}}</h2>
+        <p class="profile-email">{{profileObj.email}}</p>
+
+        <div class="profile-meta">
+          <div class="meta-row"><span class="meta-key">Age</span><span class="meta-val">{{profileObj.age}}</span></div>
+          <div class="meta-row"><span class="meta-key">Phone</span><span class="meta-val">{{profileObj.phone || '—'}}</span></div>
+          <div class="meta-row"><span class="meta-key">Address</span><span class="meta-val">{{profileObj.address || '—'}}</span></div>
+        </div>
+      </div>
+
+      <div class="profile-change-pw">
+        <h3>Change Password</h3>
+        <app-fogort [email]="profileObj.email" [changeOrdForgot]="'change'"></app-fogort>
+      </div>
+    </div>
+  } @else {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading profile...</p>
+    </div>
+  }
+</div>

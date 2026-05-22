@@ -1,0 +1,21 @@
+@if(changeOrdForgot == "change"){
+  <form #myForm="ngForm" (ngSubmit)="changePassword(myForm.value)" class="fogort-form">
+    <div class="field">
+      <label>Current Password</label>
+      <input type="password" name="oldPassword" ngModel placeholder="••••••••" />
+    </div>
+    <div class="field">
+      <label>New Password</label>
+      <input type="password" name="newPassword" ngModel placeholder="••••••••" />
+    </div>
+    <button type="submit" class="btn-submit">Change Password</button>
+  </form>
+} @else {
+  <div class="fogort-form">
+    <div class="field">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" placeholder="your@email.com" />
+    </div>
+    <button class="btn-submit" (click)="sendPassword()">Send Reset Link</button>
+  </div>
+}

@@ -1,0 +1,72 @@
+<div class="details-page">
+  @if(product._id){
+    <div class="details-container">
+      <div class="image-section">
+        <div class="main-image-wrap">
+          <img [src]="product.images[selectedImage]" [alt]="product.title" class="main-image" />
+          @if(product.price.discountPercentage > 0){
+            <span class="badge-discount">-{{product.price.discountPercentage}}% OFF</span>
+          }
+        </div>
+        @if(product.images.length > 1){
+          <div class="thumbnails">
+            @for(img of product.images; track $index){
+              <img [src]="img" [alt]="product.title" class="thumb"
+                [class.active]="$index === selectedImage"
+                (click)="selectedImage = $index" />
+            }
+          </div>
+        }
+      </div>
+
+      <div class="info-section">
+        <p class="info-brand">{{product.brand}}</p>
+        <h1 class="info-title">{{product.title}}</h1>
+
+        <div class="info-stars">
+          @for(star of [1,2,3,4,5]; track $index){
+            <span [class.star-on]="star <= roundCeil(product.rating)"
+                  [class.star-off]="star > roundCeil(product.rating)">★</span>
+          }
+          <small>({{product.rating}})</small>
+        </div>
+
+        <div class="info-price">
+          @if(product.price.discountPercentage > 0){
+            <span class="price-old">{{currency.symbol()}}{{currency.convert(product.price.beforeDiscount)}}</span>
+          }
+          <span class="price-now">{{currency.symbol()}}{{currency.convert(product.price.current)}}</span>
+        </div>
+
+        <p class="info-description">{{product.description}}</p>
+
+        <div class="info-meta">
+          <div class="meta-item">
+            <span class="meta-label">Category</span>
+            <span class="meta-val">{{product.category?.name}}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Stock</span>
+            <span class="meta-val">{{product.stock}} units</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Warranty</span>
+            <span class="meta-val">{{product.warranty}} months</span>
+          </div>
+        </div>
+
+        <div class="info-actions">
+          <button class="btn-cart" (click)="addToCart()" [disabled]="addingToCart">
+            {{ addingToCart ? 'Adding...' : '🛒 Add to Cart' }}
+          </button>
+          <a routerLink="/home" class="btn-back">← Back</a>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading product...</p>
+    </div>
+  }
+</div>

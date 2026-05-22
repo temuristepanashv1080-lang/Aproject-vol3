@@ -1,0 +1,49 @@
+:host { display: block; font-family: 'Segoe UI', sans-serif; }
+
+.fogort-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  input {
+    background: #13141a;
+    border: 1px solid #2e3040;
+    border-radius: 10px;
+    color: #e0e0e0;
+    font-size: 14px;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &::placeholder { color: #444; }
+    &:focus { border-color: #e05c6a; }
+  }
+}
+
+.btn-submit {
+  padding: 12px;
+  background: #e05c6a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover { background: #c94a58; }
+}

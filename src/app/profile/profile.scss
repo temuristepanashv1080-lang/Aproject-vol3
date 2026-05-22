@@ -1,0 +1,101 @@
+:host { display: block; background: #13141a; min-height: 100vh; font-family: 'Segoe UI', sans-serif; }
+
+.profile-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.profile-container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.profile-card {
+  background: #1e2029;
+  border: 1px solid #2e3040;
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.profile-avatar-wrap {
+  margin-bottom: 16px;
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e05c6a;
+  }
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.profile-email {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.profile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  border-top: 1px solid #2e3040;
+  padding-top: 20px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+
+  .meta-key { color: #666; }
+  .meta-val  { color: #ccc; font-weight: 600; }
+}
+
+.profile-change-pw {
+  background: #1e2029;
+  border: 1px solid #2e3040;
+  border-radius: 20px;
+  padding: 32px;
+
+  h3 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+}
+
+.loading-state {
+  text-align: center;
+  padding: 120px 0;
+  color: #555;
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #2e3040;
+    border-top-color: #e05c6a;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+  }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 700px) {
+  .profile-container { grid-template-columns: 1fr; }
+}

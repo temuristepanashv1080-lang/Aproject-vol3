@@ -1,0 +1,63 @@
+<div class="auth-page">
+  <div class="auth-card wide">
+    <div class="auth-header">
+      <div class="auth-logo">🛒</div>
+      <h1>Create Account</h1>
+      <p>Join TechShop and start shopping</p>
+    </div>
+
+    <form [formGroup]="myRegisterForm" (ngSubmit)="register()" class="register-form">
+      <div class="form-grid">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" formControlName="firstName" placeholder="John" />
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" formControlName="lastName" placeholder="Doe" />
+        </div>
+        <div class="field">
+          <label>Age</label>
+          <input type="number" formControlName="age" placeholder="25" />
+        </div>
+        <div class="field">
+          <label>Gender</label>
+          <select formControlName="gender">
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label>Email</label>
+          <input type="email" formControlName="email" placeholder="your@email.com" />
+        </div>
+        <div class="field full">
+          <label>Password</label>
+          <input type="password" formControlName="password" placeholder="Min 8 characters" />
+        </div>
+        <div class="field full">
+          <label>Address</label>
+          <input type="text" formControlName="address" placeholder="123 Main St" />
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="text" formControlName="phone" placeholder="+1 555 0000" />
+        </div>
+        <div class="field">
+          <label>Zipcode</label>
+          <input type="text" formControlName="zipcode" placeholder="10001" />
+        </div>
+        <div class="field full">
+          <label>Avatar URL</label>
+          <input type="text" formControlName="avatar" placeholder="https://..." />
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" [disabled]="!myRegisterForm.valid">Create Account</button>
+    </form>
+
+    <div class="auth-footer">
+      <a routerLink="/login" class="link">Already have an account? Sign In</a>
+    </div>
+  </div>
+</div>
