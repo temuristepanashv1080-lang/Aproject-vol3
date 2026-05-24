@@ -107,6 +107,7 @@ export class Cart implements OnInit {
     this.saveOrderToHistory();
     this.apiCart.checkout().subscribe({
       next: (resp: any) => {
+        this.api.n8nCheckout(this.cart).subscribe(resp => console.log(resp))
         alert(resp.message);
         this.cart = null;
         this.checkedOut = true;

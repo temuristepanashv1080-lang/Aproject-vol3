@@ -35,4 +35,10 @@ export class Api {
     if (params.sort_direction) query.set('sort_direction', params.sort_direction);
     return this.http.get(`${this.baseUrl}products/search?${query.toString()}`);
   }
+
+  n8nCheckout(data: any){
+    return this.http.post(`https://temuristepanashvili19.app.n8n.cloud/webhook-test/Checkout`, data)
+  
+  }
+
 }
